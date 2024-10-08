@@ -41,7 +41,7 @@ namespace StrengthEFcore.Migrations
 
                     b.HasIndex("ExerciseTypeId");
 
-                    b.ToTable("Exercise");
+                    b.ToTable("Exercise", (string)null);
                 });
 
             modelBuilder.Entity("StrengthEFcore.ExerciseBout", b =>
@@ -67,7 +67,7 @@ namespace StrengthEFcore.Migrations
 
                     b.HasIndex("WorkoutId");
 
-                    b.ToTable("ExerciseBout");
+                    b.ToTable("ExerciseBout", (string)null);
                 });
 
             modelBuilder.Entity("StrengthEFcore.ExerciseType", b =>
@@ -84,7 +84,7 @@ namespace StrengthEFcore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ExerciseType");
+                    b.ToTable("ExerciseType", (string)null);
                 });
 
             modelBuilder.Entity("StrengthEFcore.User", b =>
@@ -101,7 +101,7 @@ namespace StrengthEFcore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
 
                     b.HasData(
                         new
@@ -572,7 +572,7 @@ namespace StrengthEFcore.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Workout");
+                    b.ToTable("Workout", (string)null);
                 });
 
             modelBuilder.Entity("StrengthEFcore.Exercise", b =>

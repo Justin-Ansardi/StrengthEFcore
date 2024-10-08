@@ -1,4 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Newtonsoft.Json;
+using System;
+using System.Security.Cryptography;
+using System.Text.Json;
+using static System.Text.Json.JsonSerializer;
 
 
 namespace StrengthEFcore
@@ -24,11 +30,23 @@ namespace StrengthEFcore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            new DbInitializer(modelBuilder).Seed();
+
+
+            //Use the line below to generate new users
+            //new DbInitializer(modelBuilder).Seed();
+
         }
+    }
 
-
-
+    public class ExerciseBoutsConfiguration : IEntityTypeConfiguration<ExerciseBout>
+    {
+        public void Configure(EntityTypeBuilder<ExerciseBout> builder)
+        {
+            // This Converter will perform the conversion to and from Json to the desired type
+            builder.Property(e => e.SetReps).HasConversion(
+                v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                v => JsonConvert.DeserializeObject<IDictionary<string,string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
+        }
     }
 
 }

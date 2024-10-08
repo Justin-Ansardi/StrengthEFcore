@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace StrengthEFcore.SeedData
 {
     // Future version could query existing database entries, if devs ever wanted to generate more data.
-    public static class UserGenerator
+    public static class SeedDataGenerator
     {
         private static Random random = new Random();
 
@@ -54,5 +54,9 @@ namespace StrengthEFcore.SeedData
             users = ids.Zip(generatedNames, (first, second) => new User() { Id = first, Name = second }).ToList();
             return users;
         }
+
+        public static List<Workout> GenerateWorkouts(List<User> users) =>
+         users.Select(x => new Workout() { User = x, DateTime = DateTime.Now }).ToList();
     }
+
 }

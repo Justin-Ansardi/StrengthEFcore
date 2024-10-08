@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StrengthEFcore;
 using StrengthEFcore.SeedData;
-using static StrengthEFcore.SeedData.UserGenerator;
+using System.Collections.Generic;
+using static StrengthEFcore.SeedData.SeedDataGenerator;
 
 public class DbInitializer
 {
@@ -17,7 +18,13 @@ public class DbInitializer
         modelBuilder.Entity<User>().HasData(
          GenerateUsers(100)
         );
+
+        modelBuilder.Entity<Workout>().HasData(
+         GenerateWorkouts(IList <Users>))
+        );
+
     }
+
 }
 
 
