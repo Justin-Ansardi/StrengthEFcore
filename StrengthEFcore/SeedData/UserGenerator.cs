@@ -11,8 +11,6 @@ namespace StrengthEFcore.SeedData
     {
         private static Random random = new Random();
 
-        // Simple hardcoded names for demonstration
-        // This is a limited set of names; for uniqueness, you might want to generate a more extensive list.
         private static string[] firstNames = new string[]
         {
         "John", "Jane", "Alex", "Alice", "Bob",
@@ -45,7 +43,6 @@ namespace StrengthEFcore.SeedData
                 string lastName = lastNames[random.Next(lastNames.Length)];
                 string fullName = $"{firstName} {lastName}";
 
-                // Ensure uniqueness of names
                 if (!generatedNames.Contains(fullName))
                 {
                     generatedNames.Add(fullName);
