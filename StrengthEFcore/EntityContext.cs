@@ -13,7 +13,7 @@ namespace StrengthEFcore
         public DbSet<Exercise> Exercise { get; set; }
         public DbSet<ExerciseType> ExerciseType { get; set; }
 
-        public string DbPath => "";
+        public string DbPath => "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Strength;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
