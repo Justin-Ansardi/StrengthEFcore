@@ -24,11 +24,14 @@ namespace StrengthEFcore.Migrations
 
             modelBuilder.Entity("StrengthEFcore.Exercise", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<string>("ExerciseTypeId")
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ExerciseTypeId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -43,18 +46,20 @@ namespace StrengthEFcore.Migrations
 
             modelBuilder.Entity("StrengthEFcore.ExerciseBout", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<string>("ExerciseId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ExerciseId")
+                        .HasColumnType("int");
 
                     b.Property<string>("SetRepJson")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("WorkoutId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("WorkoutId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -67,8 +72,11 @@ namespace StrengthEFcore.Migrations
 
             modelBuilder.Entity("StrengthEFcore.ExerciseType", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -81,8 +89,11 @@ namespace StrengthEFcore.Migrations
 
             modelBuilder.Entity("StrengthEFcore.User", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -95,440 +106,458 @@ namespace StrengthEFcore.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1",
-                            Name = "Jane Anderson"
-                        },
-                        new
-                        {
-                            Id = "2",
-                            Name = "Ian Thomas"
-                        },
-                        new
-                        {
-                            Id = "3",
-                            Name = "David Johnson"
-                        },
-                        new
-                        {
-                            Id = "4",
-                            Name = "Fiona Brown"
-                        },
-                        new
-                        {
-                            Id = "5",
-                            Name = "Jessica Martin"
-                        },
-                        new
-                        {
-                            Id = "6",
-                            Name = "Jane Williams"
-                        },
-                        new
-                        {
-                            Id = "7",
-                            Name = "Diana Martin"
-                        },
-                        new
-                        {
-                            Id = "8",
-                            Name = "Olivia Miller"
-                        },
-                        new
-                        {
-                            Id = "9",
-                            Name = "Sophia Jackson"
-                        },
-                        new
-                        {
-                            Id = "10",
-                            Name = "Daniel Anderson"
-                        },
-                        new
-                        {
-                            Id = "11",
-                            Name = "Ian Johnson"
-                        },
-                        new
-                        {
-                            Id = "12",
-                            Name = "Sarah Martinez"
-                        },
-                        new
-                        {
-                            Id = "13",
-                            Name = "Diana Williams"
-                        },
-                        new
-                        {
-                            Id = "14",
-                            Name = "Emma Martinez"
-                        },
-                        new
-                        {
-                            Id = "15",
-                            Name = "Matthew Johnson"
-                        },
-                        new
-                        {
-                            Id = "16",
-                            Name = "Jessica Anderson"
-                        },
-                        new
-                        {
-                            Id = "17",
-                            Name = "John Johnson"
-                        },
-                        new
-                        {
-                            Id = "18",
-                            Name = "Alex Gonzalez"
-                        },
-                        new
-                        {
-                            Id = "19",
-                            Name = "Alex Jones"
-                        },
-                        new
-                        {
-                            Id = "20",
-                            Name = "Emma Johnson"
-                        },
-                        new
-                        {
-                            Id = "21",
-                            Name = "David Brown"
-                        },
-                        new
-                        {
-                            Id = "22",
-                            Name = "Jessica Wilson"
-                        },
-                        new
-                        {
-                            Id = "23",
-                            Name = "Daniel Johnson"
-                        },
-                        new
-                        {
-                            Id = "24",
-                            Name = "Chris Martinez"
-                        },
-                        new
-                        {
-                            Id = "25",
-                            Name = "Michael Wilson"
-                        },
-                        new
-                        {
-                            Id = "26",
-                            Name = "Jane Taylor"
-                        },
-                        new
-                        {
-                            Id = "27",
-                            Name = "Emma Miller"
-                        },
-                        new
-                        {
-                            Id = "28",
-                            Name = "Sophia Thomas"
-                        },
-                        new
-                        {
-                            Id = "29",
-                            Name = "Sarah Garcia"
-                        },
-                        new
-                        {
-                            Id = "30",
-                            Name = "Diana Miller"
-                        },
-                        new
-                        {
-                            Id = "31",
-                            Name = "Alex Martinez"
-                        },
-                        new
-                        {
-                            Id = "32",
-                            Name = "Bob Lopez"
-                        },
-                        new
-                        {
-                            Id = "33",
-                            Name = "Matthew Gonzalez"
-                        },
-                        new
-                        {
-                            Id = "34",
-                            Name = "John Miller"
-                        },
-                        new
-                        {
-                            Id = "35",
-                            Name = "Sophia Davis"
-                        },
-                        new
-                        {
-                            Id = "36",
-                            Name = "Matthew Jackson"
-                        },
-                        new
-                        {
-                            Id = "37",
-                            Name = "Ian Wilson"
-                        },
-                        new
-                        {
-                            Id = "38",
-                            Name = "Fiona Thomas"
-                        },
-                        new
-                        {
-                            Id = "39",
-                            Name = "Sophia Gonzalez"
-                        },
-                        new
-                        {
-                            Id = "40",
-                            Name = "Sarah Gonzalez"
-                        },
-                        new
-                        {
-                            Id = "41",
-                            Name = "Sarah Miller"
-                        },
-                        new
-                        {
-                            Id = "42",
-                            Name = "Sarah Rodriguez"
-                        },
-                        new
-                        {
-                            Id = "43",
-                            Name = "Jessica Miller"
-                        },
-                        new
-                        {
-                            Id = "44",
-                            Name = "Chris Taylor"
-                        },
-                        new
-                        {
-                            Id = "45",
-                            Name = "John Moore"
-                        },
-                        new
-                        {
-                            Id = "46",
-                            Name = "John Jones"
-                        },
-                        new
-                        {
-                            Id = "47",
-                            Name = "Daniel Lopez"
-                        },
-                        new
-                        {
-                            Id = "48",
-                            Name = "George Garcia"
-                        },
-                        new
-                        {
-                            Id = "49",
-                            Name = "Emma Wilson"
-                        },
-                        new
-                        {
-                            Id = "50",
-                            Name = "Daniel Jones"
-                        },
-                        new
-                        {
-                            Id = "51",
-                            Name = "Hannah Miller"
-                        },
-                        new
-                        {
-                            Id = "52",
-                            Name = "Michael Hernandez"
-                        },
-                        new
-                        {
-                            Id = "53",
-                            Name = "Diana Wilson"
-                        },
-                        new
-                        {
-                            Id = "54",
-                            Name = "Daniel Hernandez"
-                        },
-                        new
-                        {
-                            Id = "55",
-                            Name = "Olivia Gonzalez"
-                        },
-                        new
-                        {
-                            Id = "56",
-                            Name = "John Brown"
-                        },
-                        new
-                        {
-                            Id = "57",
-                            Name = "Michael Jones"
-                        },
-                        new
-                        {
-                            Id = "58",
-                            Name = "Jane Jackson"
-                        },
-                        new
-                        {
-                            Id = "59",
-                            Name = "Diana Brown"
-                        },
-                        new
-                        {
-                            Id = "60",
-                            Name = "Olivia Jackson"
-                        },
-                        new
-                        {
-                            Id = "61",
-                            Name = "Sarah Wilson"
-                        },
-                        new
-                        {
-                            Id = "62",
-                            Name = "Alice Hernandez"
-                        },
-                        new
-                        {
-                            Id = "63",
-                            Name = "Alice Martin"
-                        },
-                        new
-                        {
-                            Id = "64",
-                            Name = "Hannah Hernandez"
-                        },
-                        new
-                        {
-                            Id = "65",
-                            Name = "Hannah Brown"
-                        },
-                        new
-                        {
-                            Id = "66",
-                            Name = "Michael Anderson"
-                        },
-                        new
-                        {
-                            Id = "67",
-                            Name = "Olivia Davis"
-                        },
-                        new
-                        {
-                            Id = "68",
-                            Name = "Matthew Hernandez"
-                        },
-                        new
-                        {
-                            Id = "69",
-                            Name = "Ian Brown"
-                        },
-                        new
-                        {
-                            Id = "70",
-                            Name = "Emma Williams"
-                        },
-                        new
-                        {
-                            Id = "71",
-                            Name = "Alex Martin"
-                        },
-                        new
-                        {
-                            Id = "72",
-                            Name = "George Jackson"
-                        },
-                        new
-                        {
-                            Id = "73",
-                            Name = "Jane Smith"
-                        },
-                        new
-                        {
-                            Id = "74",
-                            Name = "Fiona Martin"
-                        },
-                        new
-                        {
-                            Id = "75",
-                            Name = "Alex Davis"
-                        },
-                        new
-                        {
-                            Id = "76",
-                            Name = "Diana Davis"
-                        },
-                        new
-                        {
-                            Id = "77",
-                            Name = "Diana Jones"
-                        },
-                        new
-                        {
-                            Id = "78",
-                            Name = "Michael Garcia"
-                        },
-                        new
-                        {
-                            Id = "79",
-                            Name = "Alex Rodriguez"
-                        },
-                        new
-                        {
-                            Id = "80",
-                            Name = "John Wilson"
-                        },
-                        new
-                        {
-                            Id = "81",
-                            Name = "Matthew Moore"
-                        },
-                        new
-                        {
-                            Id = "82",
-                            Name = "Hannah Wilson"
-                        },
-                        new
-                        {
-                            Id = "83",
+                            Id = 1,
                             Name = "Olivia Hernandez"
                         },
                         new
                         {
-                            Id = "84",
-                            Name = "Bob Thomas"
+                            Id = 2,
+                            Name = "Jessica Garcia"
                         },
                         new
                         {
-                            Id = "85",
-                            Name = "Fiona Gonzalez"
+                            Id = 3,
+                            Name = "Sophia Martinez"
                         },
                         new
                         {
-                            Id = "86",
-                            Name = "George Taylor"
+                            Id = 4,
+                            Name = "Michael Gonzalez"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Matthew Martin"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Alice Taylor"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Daniel Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Diana Williams"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Olivia Miller"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Matthew Johnson"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Jessica Miller"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Olivia Lopez"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "John Johnson"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Emma Moore"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Jessica Smith"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Michael Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "Michael Taylor"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "Sarah Garcia"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "Sarah Martinez"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "Daniel Martinez"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "Sarah Martin"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Name = "Jane Jackson"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Name = "Sophia Williams"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Name = "Alice Wilson"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Name = "Fiona Williams"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Name = "Ian Garcia"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Name = "Jane Smith"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Name = "Chris Johnson"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Name = "Alex Thomas"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Name = "George Lopez"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Name = "Michael Lopez"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Name = "David Anderson"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Name = "Olivia Wilson"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Name = "David Martin"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Name = "Jane Davis"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Name = "David Jackson"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Name = "Jane Martin"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Name = "Emma Gonzalez"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Name = "Emma Taylor"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Name = "Chris Jackson"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Name = "Diana Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Name = "George Martinez"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Name = "Fiona Jones"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Name = "Matthew Williams"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Name = "Ian Jones"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Name = "David Hernandez"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Name = "Alice Miller"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Name = "Fiona Martinez"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Name = "Michael Jackson"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Name = "Emma Smith"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Name = "David Lopez"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Name = "Hannah Johnson"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Name = "Olivia Gonzalez"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Name = "Jane Jones"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Name = "Sarah Davis"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Name = "Alice Jones"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Name = "Sarah Jones"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Name = "Emma Garcia"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Name = "Bob Moore"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Name = "Hannah Martin"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Name = "George Garcia"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Name = "Michael Moore"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Name = "Alice Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Name = "John Hernandez"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Name = "Ian Davis"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Name = "Jane Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Name = "Sophia Martin"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Name = "Daniel Hernandez"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            Name = "Sarah Gonzalez"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            Name = "Sophia Johnson"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            Name = "Hannah Brown"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            Name = "Jessica Davis"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            Name = "Diana Anderson"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            Name = "Sophia Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            Name = "Bob Wilson"
+                        },
+                        new
+                        {
+                            Id = 76,
+                            Name = "Emma Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            Name = "John Miller"
+                        },
+                        new
+                        {
+                            Id = 78,
+                            Name = "John Anderson"
+                        },
+                        new
+                        {
+                            Id = 79,
+                            Name = "Jane Johnson"
+                        },
+                        new
+                        {
+                            Id = 80,
+                            Name = "Fiona Martin"
+                        },
+                        new
+                        {
+                            Id = 81,
+                            Name = "Sophia Gonzalez"
+                        },
+                        new
+                        {
+                            Id = 82,
+                            Name = "Alex Jackson"
+                        },
+                        new
+                        {
+                            Id = 83,
+                            Name = "John Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 84,
+                            Name = "Matthew Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 85,
+                            Name = "Sarah Rodriguez"
+                        },
+                        new
+                        {
+                            Id = 86,
+                            Name = "John Gonzalez"
+                        },
+                        new
+                        {
+                            Id = 87,
+                            Name = "Diana Hernandez"
+                        },
+                        new
+                        {
+                            Id = 88,
+                            Name = "Ian Martinez"
+                        },
+                        new
+                        {
+                            Id = 89,
+                            Name = "George Hernandez"
                         });
                 });
 
             modelBuilder.Entity("StrengthEFcore.Workout", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
@@ -536,9 +565,8 @@ namespace StrengthEFcore.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -566,7 +594,9 @@ namespace StrengthEFcore.Migrations
 
                     b.HasOne("StrengthEFcore.Workout", "Workout")
                         .WithMany("ExerciseBouts")
-                        .HasForeignKey("WorkoutId");
+                        .HasForeignKey("WorkoutId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Exercise");
 

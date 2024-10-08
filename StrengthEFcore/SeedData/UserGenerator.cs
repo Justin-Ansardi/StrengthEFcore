@@ -51,7 +51,7 @@ namespace StrengthEFcore.SeedData
                 index++;
             }
 
-            users = ids.Zip(generatedNames, (first, second) => new User() { Id = first.ToString(), Name = second }).ToList();
+            users = ids.Zip(generatedNames, (first, second) => new User() { Id = first, Name = second }).ToList();
             return users;
         }
     }
