@@ -31,7 +31,7 @@ namespace StrengthEFcore.SeedData
         public static List<User> GenerateUsers(int count)
         {
 
-            IEnumerable<int> ids = Enumerable.Range(1, count).Select(x => x);
+            var ids = Enumerable.Range(1, count).Select(x => x);
             var generatedNames = new HashSet<string>(); 
             var users = new List<User>();
 

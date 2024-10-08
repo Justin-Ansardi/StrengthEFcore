@@ -1,0 +1,10 @@
+﻿
+
+
+
+
+-- Find solution for reps/sets 
+
+   1) Json
+-- https://stackoverflow.com/questions/44829824/how-to-store-json-in-an-entity-field-with-ef-core
+
