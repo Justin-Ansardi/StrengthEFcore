@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StrengthEFcore.SeedData
 {
-
+    // Future version could query existing database entries, if devs ever wanted to generate more data.
     public static class UserGenerator
     {
         private static Random random = new Random();
