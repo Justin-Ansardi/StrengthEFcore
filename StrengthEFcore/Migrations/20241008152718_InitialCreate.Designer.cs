@@ -12,7 +12,7 @@ using StrengthEFcore;
 namespace StrengthEFcore.Migrations
 {
     [DbContext(typeof(EntityContext))]
-    [Migration("20241008143114_InitialCreate")]
+    [Migration("20241008152718_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace StrengthEFcore.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
