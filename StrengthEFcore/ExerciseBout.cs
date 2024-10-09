@@ -12,6 +12,6 @@ namespace StrengthEFcore
         public Workout? Workout { get; set; }
         public string Exercise { get; set; } = "Default";
 
-        public ICollection<int>? SetReps { get; set; }
+        public IList<int>? SetReps { get; set; }
 }
 }

@@ -47,7 +47,7 @@ namespace StrengthEFcore
         {
             builder.Property(e => e.SetReps).HasConversion(
                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                v => JsonConvert.DeserializeObject<ICollection<int>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
+                v => JsonConvert.DeserializeObject<List<int>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
         }
     }
 
