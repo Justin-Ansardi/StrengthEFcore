@@ -9,7 +9,8 @@ namespace StrengthEFcore
         public int Id { get; set; }
         public string? Name { get; set; }
         public DateTime DateTime { get; set; } = DateTime.Now;
-        public required User User { get; set; }
+        public int UserId { get; set; }
+        public User? User { get; set; }
         public ICollection<ExerciseBout>? ExerciseBouts { get; set; }
     }
 }

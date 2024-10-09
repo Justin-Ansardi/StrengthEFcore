@@ -63,19 +63,65 @@ namespace StrengthEFcore.SeedData
             return users;
         }
 
-        public static List<Workout> GenerateWorkouts(List<User> users) =>
-         users.Select(x => new Workout() { Id = 1, User = x, DateTime = DateTime.Now }).ToList();
+        public static List<Workout> GenerateWorkouts(List<User> users)
+        {
+            var ids = Enumerable.Range(1, users.ToArray().Length).Select(x => x);
+            var result = new List<Workout>();
+            // ---- Think about creting random datetime generator
 
-        public static List<ExerciseBout> GenerateExerciseBout(List<Workout> workouts) =>
-            workouts.Select(x =>
-                                 new ExerciseBout()
-                                 {
-                                     Id = 1,
-                                     Exercise = GetRandomExercise(),
-                                     SetReps = GenerateRandomSetsNReps(),
-                                     Workout = x
-                                 })
-            .ToList();
+            return ids.Zip(users, (x, y) =>
+                new Workout()
+                {
+                    Id = x,
+                    UserId = y.Id,
+                    DateTime = DateTime.Now,
+                    Name = $"{y.Name}'s {DateTime.Now.Day} session", 
+                    ExerciseBouts = new List<ExerciseBout>()
+                })
+             .ToList();
+        }
+
+
+        //public static List<ExerciseBout> GenerateExerciseBouts(List<Workout> workouts)
+        //{
+        //    var result = new List<ExerciseBout>();
+
+        //    foreach (var workout in workouts)
+        //    {
+        //        for (int i = 0; i < random.Next(1, 4); i++) // Generate 1 to 3 bouts for each workout
+        //        {
+        //            result.Add(new ExerciseBout
+        //            {
+        //                //WorkoutId = workout.Id,
+        //                Workout = workout,
+        //                Exercise = GetRandomExercise(),
+        //                SetReps = GenerateRandomSetsNReps()
+        //            });
+        //        }
+        //    }
+
+        //    return result;
+        //}
+
+
+
+        public static List<ExerciseBout> GenerateExerciseBouts(List<Workout> workouts)
+        {
+
+            var ids = Enumerable.Range(1, workouts.ToArray().Length).Select(x => x);
+            var result = new List<ExerciseBout>();
+
+            return ids.Zip(workouts, (x, y) =>
+              new ExerciseBout()
+              {
+                  Id = x,
+                  Exercise = GetRandomExercise(),
+                  SetReps = GenerateRandomSetsNReps(),
+                  WorkoutId = y.Id
+              })
+             .ToList();
+        }
+
 
 
 
@@ -86,8 +132,8 @@ namespace StrengthEFcore.SeedData
 
         public static List<int> GenerateRandomSetsNReps()
         {
-           var result = new List<int>();
-           var numberOfSets = random.Next(0, 5);
+            var result = new List<int>();
+            var numberOfSets = random.Next(0, 5);
 
             for (int i = 0; i < numberOfSets; i++)
             {

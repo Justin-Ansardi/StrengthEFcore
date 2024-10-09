@@ -18,11 +18,11 @@ public class DbInitializer
     {
         var users = GenerateUsers(100);
         var workouts = GenerateWorkouts(users);
-        //var bout = GenerateExerciseBout(workouts);
+        var bout = GenerateExerciseBouts(workouts);
 
-         modelBuilder.Entity<User>().HasData(users);
-         modelBuilder.Entity<Workout>().HasData(workouts);
-         //modelBuilder.Entity<ExerciseBout>().HasData(bout);
+        modelBuilder.Entity<User>().HasData(users);
+        modelBuilder.Entity<Workout>().HasData(workouts);
+        modelBuilder.Entity<ExerciseBout>().HasData(bout);
     }
 
 }

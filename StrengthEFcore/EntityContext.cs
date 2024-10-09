@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Security.Cryptography;
@@ -25,11 +26,15 @@ namespace StrengthEFcore
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer(DbPath);
+        {
+            options.EnableSensitiveDataLogging(); // this should be checked for (isDevMode) in the middleware pipeline 
+            options.UseSqlServer(DbPath);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+          
 
             new DbInitializer(modelBuilder).Seed();
 
