@@ -16,9 +16,8 @@ namespace StrengthEFcore.SeedData
     }
     public static class SeedDataGenerator
     {
-
+        //Initial
         private static Random random = new Random();
-
 
         private static string[] firstNames = new string[]
         {
@@ -36,7 +35,7 @@ namespace StrengthEFcore.SeedData
         "Thomas", "Taylor", "Moore", "Jackson", "Martin",
         };
 
-
+        //Generators
         public static List<User> GenerateUsers(int count)
         {
 
@@ -65,18 +64,22 @@ namespace StrengthEFcore.SeedData
         }
 
         public static List<Workout> GenerateWorkouts(List<User> users) =>
-         users.Select(x => new Workout() { User = x, DateTime = DateTime.Now }).ToList();
+         users.Select(x => new Workout() { Id = 1, User = x, DateTime = DateTime.Now }).ToList();
 
         public static List<ExerciseBout> GenerateExerciseBout(List<Workout> workouts) =>
             workouts.Select(x =>
                                  new ExerciseBout()
                                  {
+                                     Id = 1,
                                      Exercise = GetRandomExercise(),
                                      SetReps = GenerateRandomSetsNReps(),
                                      Workout = x
                                  })
             .ToList();
 
+
+
+        //Helpers
         public static string GetRandomExercise() =>
             Enum.GetValues<ExerciseSelection>()[random.Next(0, Enum.GetValues<ExerciseSelection>().Length)].ToString();
 
@@ -93,32 +96,7 @@ namespace StrengthEFcore.SeedData
 
             return result;
         }
-   
-
-
-
-        //public static List<int> GenerateRandomSetsNReps()
-        //    => new List<int>() { (random.Next(0, 6)), (random.Next(0, 6)) }; 
-
-        // we may need a matrix 
-        /* ex1:
-         * 1 - 5
-         * 2 - 5
-         * 3 - 4
-         * 
-         * ex2:
-         * 1 - 5
-         * 2 - 5
-         * 3 - 5
-         * 4 - 5
-         * */
-
-
-
     }
-
-
-
 }
 
 

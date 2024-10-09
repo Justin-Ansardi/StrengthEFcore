@@ -2,6 +2,7 @@
 using StrengthEFcore;
 using StrengthEFcore.SeedData;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using static StrengthEFcore.SeedData.SeedDataGenerator;
 
 public class DbInitializer
@@ -15,14 +16,13 @@ public class DbInitializer
 
     public void Seed()
     {
-        modelBuilder.Entity<User>().HasData(
-         GenerateUsers(100)
-        );
+        var users = GenerateUsers(100);
+        var workouts = GenerateWorkouts(users);
+        //var bout = GenerateExerciseBout(workouts);
 
-        modelBuilder.Entity<Workout>().HasData(
-         GenerateWorkouts(IList <Users>))
-        );
-
+         modelBuilder.Entity<User>().HasData(users);
+         modelBuilder.Entity<Workout>().HasData(workouts);
+         //modelBuilder.Entity<ExerciseBout>().HasData(bout);
     }
 
 }

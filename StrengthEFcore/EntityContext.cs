@@ -31,9 +31,7 @@ namespace StrengthEFcore
         {
             base.OnModelCreating(modelBuilder);
 
-
-            //Use the line below to generate new users
-            //new DbInitializer(modelBuilder).Seed();
+            new DbInitializer(modelBuilder).Seed();
 
         }
     }
@@ -42,10 +40,9 @@ namespace StrengthEFcore
     {
         public void Configure(EntityTypeBuilder<ExerciseBout> builder)
         {
-            // This Converter will perform the conversion to and from Json to the desired type
             builder.Property(e => e.SetReps).HasConversion(
                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                v => JsonConvert.DeserializeObject<IDictionary<string,string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
+                v => JsonConvert.DeserializeObject<IList<int>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
         }
     }
 

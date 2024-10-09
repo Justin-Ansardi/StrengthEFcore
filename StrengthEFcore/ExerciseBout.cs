@@ -5,10 +5,10 @@ namespace StrengthEFcore
 {
     public class ExerciseBout
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public required Workout Workout { get; set; } // Like in other comments, these may have to be set to nullable
-                                                      // and have a required FK id prop instead
-        public required string Exercise { get; set; } 
+        public required Workout Workout { get; set; } 
+        public string Exercise { get; set; } = "Default";
 
         public IList<int>? SetReps { get; set; }
 }
